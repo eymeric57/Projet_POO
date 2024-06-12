@@ -4,7 +4,7 @@ namespace App;
 
 use App\Controller\AuthController;
 use App\Controller\HomeController;
-use App\Controller\PizzaController;
+use App\Controller\UserController;
 use Core\Database\DatabaseConfigInterface;
 use MiladRahimi\PhpRouter\Exceptions\InvalidCallableException;
 use MiladRahimi\PhpRouter\Exceptions\RouteNotFoundException;
@@ -56,6 +56,9 @@ class App implements DatabaseConfigInterface
   {
     //ON ENREGISTRE LES ROUTES ICI
     $this->router->get('/', [HomeController::class, 'home'] );
+    $this->router->get('/favoris', [UserController::class, 'favoris'] );
+    $this->router->get('/mesBiens', [UserController::class, 'mesBiens'] );
+    $this->router->get('/mesReservations', [UserController::class, 'mesReservations'] );
     //INFO: si on veut renvoyer une vue à l'utilisateur => route en "get"
     //INFO: si on veut traiter des données d'un formulaire => route en "post"
 

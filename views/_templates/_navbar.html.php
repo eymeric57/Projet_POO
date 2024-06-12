@@ -1,9 +1,10 @@
-    <div class="d-flex justify-content-around">
+    <div class="d-flex justify-content-between text-align-center  align-items-center">
       <!-- logo -->
       <div class="nav-logo">
         <a href="/">
-          <!-- <img  src="/dir/vers/logo" alt="logo appli"> -->
-          <h3>Logo</h3>
+          
+           <img src="/assets/logo.png" height="100px" alt="logo de l'appli">
+    
         </a>
       </div>
 
@@ -12,26 +13,66 @@
         <nav>
           <ul class="d-flex justify-content-center">
             <li class="m-1"><a href="/">Accueil</a></li>
-            <li class="m-1"><a href="#">lien1</a></li>
-            <li class="m-1"><a href="#">lien2</a></li>
-            <li class="m-1"><a href="#">lien3</a></li>
+            <li class="m-1"><a href="/favoris">Mes favoris</a></li>
+            
+          
           </ul>
         </nav>
       </div>
       <!-- menu du profil -->
-      <div >
-        <nav >
-          <ul >
-            <li >
-              <a href="#">Se connecter
-                <i class="bi bi-person custom-svg"></i>
-              </a>
+      <div class="nav-profil">
+          <nav class="custom-nav-profil ">
+            <ul class="custom-ul-profil">
+              <li class="custom-link">
+                <!-- si je suis en session j'affiche mon compte -->
+               <!--  if ($auth::isAuth( LOUEUR)) : ?> -->
+                  <div class="dropdown custom-link">
+                    <a class="dropdown-toggle btn btn-secondary" href="" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      Mon compte 
+                      <i class="bi bi-person custom-svg"></i>
+                    </a>
+                    <ul class="dropdown-menu " aria-labelledby="dropdownMenuLink">
+                      <li><a class="dropdown-item custom-link" href="">Ajouter un bien</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item custom-link" href="/mesBiens">Mes annonces</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item custom-link" href="/mesReservations">Mes réservation</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item custom-link" href="">Mode voyageur</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item custom-link" href="">Me déconnecter</a></li>
+                    </ul>
+                  </div>
+               <!-- < elseif($auth::isAuth(VOYAGEUR) : ?> 
+                  <div class="dropdown custom-link">
+                    <a class="dropdown-toggle btn btn-secondary" href="" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      Mon compte 
+                      <i class="bi bi-person custom-svg"></i>
+                    </a>
+                    <ul class="dropdown-menu " aria-labelledby="dropdownMenuLink">
+                     
+        
+                    
+                     
+                      <li><a class="dropdown-item custom-link" href="/mesReservations">Mes réservation</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item custom-link" href="">Mode Loueur</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item custom-link" href="">Me déconnecter</a></li>
+                    </ul>
+                  </div>
+               < endif ?> -->
 
-            </li>
-          </ul>
+                <!-- < else: ?> 
+                  <a href="/connexion">Se connecter
+                    <i class="bi bi-person custom-svg"></i>
+                  </a>
+               < endif ?> -->
+              </li>
+            </ul>
 
-        </nav>
-      </div>
+          </nav>
+        </div>
 
 
     </div>

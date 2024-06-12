@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
   public function home()
   {
-    $view = new View('home/index');
+    $view = new View('home/home');
 
     $view->render();
   }
