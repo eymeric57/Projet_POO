@@ -13,4 +13,5 @@ services:
     creds:
       user: admin
       password: admin
-      database: appli-rbnb
+      database: bdd_airbnb
+      

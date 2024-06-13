@@ -2,6 +2,11 @@
 
 namespace App;
 
+use App\Repository\AdressRepository;
+use App\Repository\EquipementRepository;
+use App\Repository\FavoristRepository;
+use App\Repository\LogementEquipementRepository;
+use App\Repository\LogementRepository;
 use Core\Repository\RepositoryManagerTrait;
 
 class AppRepoManager
@@ -12,7 +17,12 @@ class AppRepoManager
   //on déclare une propriété privée qui va contenir une instance du repository
 // exemple: private Repository $Repository;
 
-
+private AdressRepository $adressRepository;
+private EquipementRepository $equipementRepository;
+private FavoristRepository $favorisRepository;
+private LogementRepository $logementRepository;
+private LogementEquipementRepository $logementEquipementRepository;
+private MediaRepository $mediaReposi
   //on crée ensuite les getter pour accéder à la propriété privée
   //exemple: public function getRepository(): Repository
   //{
