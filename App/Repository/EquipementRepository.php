@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Model\Equipement;
 use Core\Repository\Repository;
 
 class EquipementRepository extends Repository
@@ -10,4 +11,13 @@ class EquipementRepository extends Repository
     {
         return 'equipement';
     }
+
+
+    public function getAllEquipement():array
+    {
+        return $this->readAll(Equipement::class);
+
+    }
+
+
 }

@@ -4,10 +4,10 @@ namespace App\Repository;
 
 use Core\Repository\Repository;
 
-class MediaRepository extends Repository
+class FavorisRepository extends Repository
 {
     public function getTableName(): string
     {
-        return 'media';
+        return 'favoris';
     }
 }

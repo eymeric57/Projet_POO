@@ -28,5 +28,7 @@ class UserController extends Controller
     $view->render();
   }
 
+  
+
 
 }

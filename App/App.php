@@ -2,13 +2,14 @@
 
 namespace App;
 
+use MiladRahimi\PhpRouter\Router;
 use App\Controller\AuthController;
 use App\Controller\HomeController;
 use App\Controller\UserController;
+use App\Controller\LogementController;
 use Core\Database\DatabaseConfigInterface;
-use MiladRahimi\PhpRouter\Exceptions\InvalidCallableException;
 use MiladRahimi\PhpRouter\Exceptions\RouteNotFoundException;
-use MiladRahimi\PhpRouter\Router;
+use MiladRahimi\PhpRouter\Exceptions\InvalidCallableException;
 
 class App implements DatabaseConfigInterface
 {
@@ -54,11 +55,20 @@ class App implements DatabaseConfigInterface
   //2. méthode qui enregistre les routes
   private function registerRoutes(): void
   {
+    // PARTIE AUTH:
+    // connexion
+    $this->router->get('/connexion', [AuthController::class, 'loginForm']);
+    $this->router->post('/login', [AuthController::class, 'login']);
+    $this->router->get('/inscription', [AuthController::class, 'registerForm']);
+    $this->router->get('/logout', [AuthController::class, 'logout']);
+    $this->router->post('/register', [AuthController::class, 'register']);
+
     //ON ENREGISTRE LES ROUTES ICI
-    $this->router->get('/', [HomeController::class, 'home'] );
-    $this->router->get('/favoris', [UserController::class, 'favoris'] );
-    $this->router->get('/mesBiens', [UserController::class, 'mesBiens'] );
-    $this->router->get('/mesReservations', [UserController::class, 'mesReservations'] );
+    $this->router->get('/', [HomeController::class, 'home']);
+    $this->router->get('/favoris', [UserController::class, 'favoris']);
+    $this->router->get('/mesBiens', [UserController::class, 'mesBiens']);
+    $this->router->get('/mesReservations', [UserController::class, 'mesReservations']);
+    $this->router->get('/details{id}', [LogementController::class, 'details']);
     //INFO: si on veut renvoyer une vue à l'utilisateur => route en "get"
     //INFO: si on veut traiter des données d'un formulaire => route en "post"
 

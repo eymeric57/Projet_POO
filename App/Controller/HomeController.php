@@ -14,8 +14,9 @@ class HomeController extends Controller
 
     $view_data = [
 
-      'logement' => AppRepoManager::getRm()->getLogementRepository()->getAllLogement()
+      'logements' => AppRepoManager::getRm()->getLogementRepository()->getAllLogement()
     ];
+  
 
     $view = new View('home/home');
 

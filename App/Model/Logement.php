@@ -8,7 +8,7 @@ use Core\Model\Model;
 class Logement extends Model
 {
 
-  public int $title;
+  public string $title;
   public string $description;
   public int $price_per_night;
   public int $nb_room;
@@ -24,5 +24,8 @@ class Logement extends Model
   public ?User $user;
   public ?Type $type;
   public ?Adress $adress;
+
+  public array $medias;
+  
  
 }
