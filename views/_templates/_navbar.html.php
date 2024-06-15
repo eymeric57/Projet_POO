@@ -32,7 +32,7 @@
                   <i class="bi bi-person custom-svg"></i>
                 </a>
                 <ul class="dropdown-menu " aria-labelledby="dropdownMenuLink">
-                  <li><a class="dropdown-item custom-link" href="">Ajouter un bien</a></li>
+                  <li><a class="dropdown-item custom-link" href="/add_logement">Ajouter un bien</a></li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
@@ -72,9 +72,11 @@
                
 
               <?php else: ?> 
-                  <a href="/connexion">Se connecter
-                    <i class="bi bi-person custom-svg"></i>
+              
+                  <a href="/connexion">  <button class="btn button ">Se connecter
+                    <i class="bi bi-person custom-svg"></i> </button>
                   </a>
+                 
                <?php endif ?> 
             </li>
           </ul>

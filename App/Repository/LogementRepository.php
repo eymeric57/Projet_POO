@@ -14,10 +14,6 @@ class LogementRepository extends Repository
   }
 
 
-
-
-
-
   //fonction qui récupére toute les locations 
 
 
@@ -28,11 +24,13 @@ class LogementRepository extends Repository
 
     //on crée la requête SQL
     $q = sprintf(
-      'SELECT l.`id`, l.`title`, l.`description`,l.`price_per_night`, l.`nb_bed`, l.`nb_traveler`, l.`is_active`, l.`type_id`, l.`user_id`, m.`image_path`
+      'SELECT l.`id`, l.`title`, l.`description`,l.`price_per_night`, l.`nb_bed`,l.`nb_rooms`,	 l.`nb_traveler`, l.`is_active`,l.`taille`, l.`type_id`, l.`user_id`, m.`image_path`
         FROM %1$s AS l
         INNER JOIN %2$s AS m 
-        ON l.`id` = m.`logement_id`
+        ON l.`id` = m.`logement_id` 
+
         WHERE`is_active` = 1
+        
         ',
       $this->getTableName(), //correspond au %1$s
       AppRepoManager::getRm()->getMediaRepository()->getTableName()

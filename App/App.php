@@ -67,11 +67,18 @@ class App implements DatabaseConfigInterface
     $this->router->get('/', [HomeController::class, 'home']);
     $this->router->get('/favoris', [UserController::class, 'favoris']);
     $this->router->get('/mesBiens', [UserController::class, 'mesBiens']);
-    $this->router->get('/mesReservations', [UserController::class, 'mesReservations']);
+   
     $this->router->get('/details{id}', [LogementController::class, 'details']);
+    $this->router->get('/add_logement', [LogementController::class, 'addLogement']); 
     //INFO: si on veut renvoyer une vue à l'utilisateur => route en "get"
-    //INFO: si on veut traiter des données d'un formulaire => route en "post"
 
+
+    //add logement
+
+ 
+    $this->router->get('/mes_Reservation{id}', [UserController::class, 'mesReservationsByid']);
+
+    $this->router->post('/reservations', [UserController::class, 'addReservation']);
   }
 
   //3. méthode qui démarre le router

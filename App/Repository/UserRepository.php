@@ -60,4 +60,19 @@ class UserRepository extends Repository
     }
     return $user ?? null;
   }
+
+
+  public function ReservationByUserId(int $id): array
+  {
+    //on crée notre requete SQL
+    $q = sprintf('SELECT * FROM %s WHERE id = :id', $this->getTableName());
+    //on prépare la requete
+    $stmt = $this->pdo->prepare($q);
+    //on verrifie que la requete est bien bien préparée
+    if (!$stmt) return [];
+    //si tout est bon, on bind les valeurs
+    $stmt->execute(['id' => $id]);
+    $result = $stmt->fetchAll();
+    return $result;
+  }
 }
