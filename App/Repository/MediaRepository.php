@@ -22,8 +22,11 @@ class MediaRepository extends Repository
         $q = sprintf(
             'SELECT *
             FROM %s
-            WHERE `logement_id` = :id',
+            WHERE `logement_id` = :id
+           '
+            ,
             $this->getTableName()
+            
         );
 
         //on prépare la requete

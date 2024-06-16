@@ -2,13 +2,7 @@
 <main class="container-form">
 
   <!-- affichage des erreurs s'il y en a -->
-  <?php if ($form_result && $form_result->hasErrors()) : ?>
-    <div class="alert alert-danger" role="alert">
-      <?= $form_result->getErrors()[0]->getMessage() ?>
-    </div>
-  <?php endif ?>
-
-
+  <?php include(PATH_ROOT . 'views/_templates/_message.html.php') ?>
 
 
 

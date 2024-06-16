@@ -16,7 +16,6 @@ class LogementRepository extends Repository
 
   //fonction qui récupére toute les locations 
 
-
   public function getAllLogement(): ?array
   {
     //on déclare un tableau vide
@@ -24,17 +23,28 @@ class LogementRepository extends Repository
 
     //on crée la requête SQL
     $q = sprintf(
-      'SELECT l.`id`, l.`title`, l.`description`,l.`price_per_night`, l.`nb_bed`,l.`nb_rooms`,	 l.`nb_traveler`, l.`is_active`,l.`taille`, l.`type_id`, l.`user_id`, m.`image_path`
-        FROM %1$s AS l
-        INNER JOIN %2$s AS m 
-        ON l.`id` = m.`logement_id` 
-
-        WHERE`is_active` = 1
-        
-        ',
+      'SELECT
+      l.`id`, 
+      l.`title`, 
+      l.`description`, 
+      l.`price_per_night`, 
+      l.`nb_bed`, 
+      l.`nb_rooms`, 
+      l.`nb_traveler`, 
+      l.`is_active`, 
+      l.`taille`, 
+      l.`type_id`, 
+      l.`user_id`, 
+      m.`image_path`
+  FROM 
+      %1$s AS l
+  INNER JOIN 
+      %2$s AS m 
+      ON l.`id` = m.`logement_id`
+    WHERE 
+      l.`is_active` = 1',
       $this->getTableName(), //correspond au %1$s
-      AppRepoManager::getRm()->getMediaRepository()->getTableName()
-
+      AppRepoManager::getRm()->getMediaRepository()->getMediaById($this->getTableName())
     );
 
     //on peut directement executer la requete
@@ -58,7 +68,8 @@ class LogementRepository extends Repository
   {
     //on crée la requete SQL
     $q = sprintf(
-      'SELECT * FROM %s WHERE `id` = :id',
+      'SELECT * FROM %s
+       WHERE `id` = :id',
       $this->getTableName()
     );
 
@@ -86,4 +97,64 @@ class LogementRepository extends Repository
     //je retourne l'objet Pizza
     return $logement;
   }
+
+  public function getAllLogementWithOneImg(): ?array
+  {
+    //on déclare un tableau vide
+    $array_result = [];
+
+    //on crée la requête SQL
+    $q = sprintf(
+      'SELECT
+      l.`id`, 
+      l.`title`, 
+      l.`description`, 
+      l.`price_per_night`, 
+      l.`nb_bed`, 
+      l.`nb_rooms`, 
+      l.`nb_traveler`, 
+      l.`is_active`, 
+      l.`taille`, 
+      l.`type_id`, 
+      l.`user_id`, 
+      m.`image_path`
+  FROM 
+      logement AS l
+  INNER JOIN 
+      media AS m 
+      ON l.`id` = m.`logement_id`
+  INNER JOIN (
+      SELECT 
+          logement_id, 
+          MIN(id) AS min_id
+      FROM 
+          media
+      GROUP BY 
+          logement_id
+  ) AS subquery 
+      ON m.`id` = subquery.min_id
+  WHERE 
+      l.`is_active` = 1',
+      $this->getTableName(), //correspond au %1$s
+      AppRepoManager::getRm()->getMediaRepository()->getTableName()
+
+    );
+
+    //on peut directement executer la requete
+    $stmt = $this->pdo->query($q);
+    //on vérifie que la requete est bien executée
+    if (!$stmt) return $array_result;
+    //on récupère les données que l'on met dans notre tableau
+    while ($row_data = $stmt->fetch()) {
+
+      //a chaque passage de la boucle on instancie un objet pizza
+      $logement = new Logement($row_data);
+      $logement->medias[] = $row_data['image_path'];
+      $array_result[] = $logement;
+    }
+    //on retourne le tableau fraichement rempli
+    return $array_result;
+  }
+
+
 }

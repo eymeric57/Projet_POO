@@ -6,6 +6,8 @@
 }
 body {
   padding: 10px;
+  height: 100%;
+
 }
 
 a {
@@ -19,7 +21,77 @@ ul, ol, li {
 
 
 /* fin de reset css */
+
+/* BTN NAV choix du compte */
+
+#btn-nav {   
+  background-color: rgb(214, 19, 78);    
+ font-weight: bold;
+ width: 130px;
+ height: 30px;
+ border-radius: 50px;
+ position: relative;
+ border: solid 2px grey;
+ color: white;
+ 
+filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+}
+
+.round {
+ background-color: rgb(230, 230, 230);
+border: solid 3px grey;
+ height: 26px;
+ width: 26px;
+ border-radius: 100%;
+ position: absolute;
+ cursor: pointer;
+
+ 
+}
+
+.roundPos1 {
+left: 0;
+
+
+}
+
+.roundPos2 {
+
+ right: 0;
+ 
+}
+
+
+
+
+
+.span-word {
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+}
+
+
+
+/* fin du BTN NAV */
+
+
+
+
+
+
+
+
+
+
 /* login formulair */
+
+
+
+
+
 
 
 .login-box {
@@ -73,4 +145,13 @@ input[type=email], input[type=password], input[type=text], input[type=number] {
   "b b a"
   "b b c"
   "b b c";
+}
+
+
+
+
+/*footer*/
+
+#footer-nav {
+ margin-bottom: 50px;
 }

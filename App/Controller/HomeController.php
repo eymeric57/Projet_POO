@@ -14,7 +14,7 @@ class HomeController extends Controller
 
     $view_data = [
 
-      'logements' => AppRepoManager::getRm()->getLogementRepository()->getAllLogement()
+  'logements' => AppRepoManager::getRm()->getLogementRepository()->getAllLogementWithOneImg()
     ];
   
 

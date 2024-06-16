@@ -25,12 +25,12 @@ class UserController extends Controller
   }
 
 
-  public function mesReservationsByid(int $id)
+  public function mesReservationsByid( $id)
   {
 
    $view_data = [
 
-      'logements' => AppRepoManager::getRm()->getLogementRepository()->getLogementById($id)
+      'reservation' => AppRepoManager::getRm()->getReservationRepository()->getReservationByUserId($id)
   ];
   
     $view = new View('home/mesReservations/'.$id);

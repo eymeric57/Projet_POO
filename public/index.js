@@ -1,55 +1,37 @@
-// convert today date to input format
-
-const today = new Date().toISOString().split("T")[0];
-
-start_date.value = today;
-start_date.min = today;
-
-// tomorrow date calc
-
-let tomorrow = new Date();
-tomorrow.setDate(tomorrow.getDate() + 1);
-
-// convert to input format
-let tomorrowFormat = tomorrow.toISOString().split("T")[0];
-end_date.value = tomorrowFormat;
-end_date.min = tomorrowFormat;
-
-start_date.addEventListener("change", (e) => {
-  let day = new Date(e.target.value);
-
-  if (end_date.value < start_date.value) {
-    day.setDate(day.getDate() + 1);
-    end_date.value = day.toISOString().split("T")[0];
-  }
-});
-
-end_date.addEventListener("change", (e) => {
-  let day = new Date(e.target.value);
-
-  if (end_date.value < start_date.value) {
-    day.setDate(day.getDate() - 1);
-    start_date.value = day.toISOString().split("T")[0];
-  }
-});
-
-let bookingCalc = () => {
-  let diffTime = Math.abs(
-    new Date(end_date.value) - new Date(start_date.value)
-  );
-  let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-  total.textContent = diffDays * nightPrice.textContent;
-};
-
-start_date.addEventListener("change", bookingCalc);
-end_date.addEventListener("change", bookingCalc);
+// Converting date to input format
 
 
 
 
 
-function copierSpanDansHidden() {
-  let spanValue = document.getElementById('total').innerText;
-  document.getElementById('champCache').value = spanValue;
-}
+// BTN NAV CHOIX DU COMPTE 
+
+let var1 = "loueur";
+let var2 = "voyageur";
+let pos = true
+word1.innerHTML = var2;
+
+let round = document.getElementById("round");
+
+round.addEventListener("click", function () {
+
+
+    if (pos == true) {
+        round.classList.remove("roundPos1");
+        round.classList.add("roundPos2");
+        pos = false;
+        word1.innerHTML = var1;
+       
+        console.log(pos);
+    } else if (pos == false){
+        round.classList.remove("roundPos2");
+        round.classList.add("roundPos1");
+        pos = true
+       
+        word1.innerHTML = var2;
+        console.log(pos);
+    }
+
+
+})
+

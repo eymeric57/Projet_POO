@@ -1,5 +1,5 @@
-  <footer id="footer">
-    <nav>
+  <footer id="footer"class=" ">
+    <nav id="footer-nav"  class="">
       <ul class="d-flex justify-content-center">
         <li class="m-1"><a href="#">footer lien1</a></li>
         <li class="m-1"><a href="#">footer lien2</a></li>

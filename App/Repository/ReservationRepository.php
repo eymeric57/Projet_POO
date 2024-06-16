@@ -32,6 +32,29 @@ class ReservationRepository extends Repository
         
     }
 
+    public function getReservationByUserId( $id)
+    {
+
+        $array_result = [];
+
+        $q = sprintf(
+            "SELECT * FROM %s WHERE user_id = :id",
+            $this->getTableName()
+        );
+
+        $stmt = $this->pdo->query($q);
+    //on vérifie que la requete est bien executée
+    if (!$stmt) return $array_result;
+    //on récupère les données que l'on met dans notre tableau
+    while ($row_data = $stmt->fetch()) {
+
+      //a chaque passage de la boucle on instancie un objet pizza
+      $logement = new Reservation($row_data);
+
+      $array_result[] = $reservation;
+    }
+    }
+
 
 
 
