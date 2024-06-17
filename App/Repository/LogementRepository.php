@@ -157,4 +157,23 @@ class LogementRepository extends Repository
   }
 
 
+  public function insertLogement(array $data)
+  {
+      $q = sprintf(
+          "INSERT INTO %s (user_id, price_per_night, nb_rooms,nb_bed, nb_traveler, taille, description, title, is_active, type_id, address_id)
+           VALUES (:user_id, :price_per_night, :nb_rooms, :nb_bed, :nb_traveler, :taille, :description, :title, :is_active , :type_id, :address_id) ",
+          $this->getTableName()
+      );
+      
+
+      $stmt = $this->pdo->prepare($q);
+
+      if(!$stmt) return false;
+
+      $stmt->execute($data);
+
+
+      
+  }
+
 }

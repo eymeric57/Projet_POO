@@ -1,5 +1,4 @@
 
-
 <h1 class="text-center">Les locations disponibles</h1>
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary w-50 m-auto">

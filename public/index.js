@@ -1,37 +1,17 @@
-// Converting date to input format
+// get today
 
 
+const switchBtn = document.getElementById("switchBtn");
+const roundBtn = document.getElementById("roundBtn");
+const choice = document.getElementById("choice");
 
-
-
-// BTN NAV CHOIX DU COMPTE 
-
-let var1 = "loueur";
-let var2 = "voyageur";
-let pos = true
-word1.innerHTML = var2;
-
-let round = document.getElementById("round");
-
-round.addEventListener("click", function () {
-
-
-    if (pos == true) {
-        round.classList.remove("roundPos1");
-        round.classList.add("roundPos2");
-        pos = false;
-        word1.innerHTML = var1;
-       
-        console.log(pos);
-    } else if (pos == false){
-        round.classList.remove("roundPos2");
-        round.classList.add("roundPos1");
-        pos = true
-       
-        word1.innerHTML = var2;
-        console.log(pos);
-    }
-
-
-})
-
+switchBtn.addEventListener("click", () => {
+  switchBtn.classList.toggle("active");
+  roundBtn.classList.toggle("active");
+  choice.classList.toggle("active");
+  if (choice.classList.contains("active")) {
+    choice.textContent = "Loueur";
+  } else {
+    choice.textContent = "Voyageur";
+  }
+});
