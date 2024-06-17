@@ -91,6 +91,7 @@ class UserController extends Controller
     $nb_bed = $data_form['nb_bed'];
     $type = $data_form['type'];
     $phone = $data_form['phone'];
+    $img = $data_form['img'];
     
 
   
@@ -130,9 +131,15 @@ class UserController extends Controller
     
         ];
 
-    $reservation_data = AppRepoManager::getRm()->getLogementRepository()->insertLogement($reservation_data);
-   
+    $reservation_logement_id = AppRepoManager::getRm()->getLogementRepository()->insertLogement($reservation_data);
 
+
+    $image_data = [
+      'logement_id' => $reservation_logement_id,
+      'image_path' => $data_form['img']
+    ];
+   
+$image_data = AppRepoManager::getRm()->getMediaRepository()->insertMedia($image_data);
 
           self::redirect('/');
      

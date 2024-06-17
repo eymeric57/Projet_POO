@@ -91,6 +91,11 @@ use Core\Session\Session; ?>
       <option>3</option>
 
     </select>
+
+    <div class="form-group">
+    <label for="exampleInputPassword1">phone</label>
+    <input type="file" class="form-control" id="exampleInputPassword1" placeholder="Password" name="img">
+  </div>
   </div>
 
   <div class="form-group">

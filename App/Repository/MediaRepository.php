@@ -47,6 +47,24 @@ class MediaRepository extends Repository
         return $array_result;
     }
 
+    public function insertMedia(array $data)
+  {
+      $q = sprintf(
+          "INSERT INTO %s (image_path, logement_id)
+           VALUES (:image_path, :logement_id) ",
+          $this->getTableName()
+      );
+      
+
+      $stmt = $this->pdo->prepare($q);
+
+      if(!$stmt) return false;
+
+      $stmt->execute($data);
+
+
+      
+  }
 
    
 }

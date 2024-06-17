@@ -171,6 +171,8 @@ class LogementRepository extends Repository
       if(!$stmt) return false;
 
       $stmt->execute($data);
+      
+      return $this->pdo->lastInsertId();
 
 
       
