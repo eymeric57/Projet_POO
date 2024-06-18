@@ -61,4 +61,18 @@ class LogementEquipementRepository extends Repository
         //on retourne le tableau fraichement rempli
         return $array_result;
     }
+
+
+    public function insertEquipementByLogementId(array $data)
+    {
+        //on crée notre requete SQL
+        $q = sprintf('INSERT INTO %s (logement_id, equipement_id) VALUES (:logement_id, :equipement_id)', $this->getTableName());
+        //on prépare la requete
+        $stmt = $this->pdo->prepare($q);
+        //on verrifie que la requete est bien bien préparée
+        if (!$stmt) return false;
+        //si tout est bon, on bind les valeurs
+        $stmt->execute($data);
+
+    }
 }

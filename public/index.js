@@ -1,11 +1,3 @@
-const switchBtn = document.getElementById("switch");
-const roundBtn = document.getElementById("roundBtn");
-const choice = document.getElementById("choice");
-
-switchBtn.addEventListener("change", () => {
-  choice.textContent = switchBtn.checked ? "Loueur" : "Voyageur";
-  choice.classList.toggle("active", switchBtn.checked);
-});
 
 
 // convert today date to input format

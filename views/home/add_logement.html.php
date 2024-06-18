@@ -2,6 +2,7 @@
 
 <?php
 
+use App\AppRepoManager;
 use Core\Session\Session; ?>
 
 
@@ -33,13 +34,6 @@ use Core\Session\Session; ?>
 
 
 
-
-
-
-
-
-
-
   <div class="card adress d-flex flex-row p-3 gap-3 ">
 
 
@@ -50,7 +44,8 @@ use Core\Session\Session; ?>
 
     <div class="form-group">
       <label for="exampleInputPassword1">nombre de chambre</label>
-      <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Nombre de chambre" name="nb_rooms">
+      <input type="number" class="form-control" id="example
+      nputPassword1" placeholder="Nombre de chambre" name="nb_rooms">
     </div>
 
     <div class="form-group">
@@ -68,40 +63,60 @@ use Core\Session\Session; ?>
 
 
 
-  <div class="card adress d-flex flex-row p-3 gap-3 ">
+    <div class="card adress d-flex flex-row p-3 gap-3 ">
 
-  <div class="form-group">
-    <label for="exampleInputPassword1">taille</label>
-    <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Password" name="size">
-  </div>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Description</label>
-    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password" name="description">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">phone</label>
-    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password" name="phone">
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">Example select</label>
-    <select name="type" class="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
+      <div class="form-group">
+       <label for="exampleInputPassword1">taille</label>
+        <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Password" name="size">
+      </div>
+    </div>
 
-    </select>
+
+     <div class="form-group">
+        <label for="exampleInputPassword1">Description</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password" name="description">
+     </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">phone</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password" name="phone">
+      </div>
+      <div class="form-group">
+            <label for="exampleFormControlSelect1">Example select</label>
+        <select name="type" class="form-control" id="exampleFormControlSelect1">
+            <option>1</option>
+          <option>2</option>
+            <option>3</option>
+
+        </select>
+
+
+
+          <?php foreach (AppRepoManager::getRm()->getEquipementRepository()->getAllEquipement() as $equipement) :
+                ?>
+            <div class="list-ingredient-box-update">
+            
+              <div class="form-check form-switch ">
+                <input name="equipements[]" value="<?= $equipement->id ?>" class="form-check-input" type="checkbox" role="switch">
+                <label class="form-check-label footer-description m-1"><?= $equipement->label ?></label>
+              </div>
+            </div>
+            <?php endforeach ?>
+
+     
+
+      </div>
 
     <div class="form-group">
-    <label for="exampleInputPassword1">phone</label>
-    <input type="file" class="form-control" id="exampleInputPassword1" placeholder="Password" name="img">
-  </div>
-  </div>
+      <label for="exampleInputPassword1">phone</label>
+      <input type="file" class="form-control" id="exampleInputPassword1" placeholder="Password" name="img">
+    </div>
+     
 
-  <div class="form-group">
-    <label for="exampleInputPassword1">titre</label>
-    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="titre" name="title">
-  </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">titre</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="titre" name="title">
+        </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>
+
 </form>

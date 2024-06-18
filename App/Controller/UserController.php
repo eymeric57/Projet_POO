@@ -1,6 +1,7 @@
 <?php 
 namespace App\Controller;
 
+use App\App;
 use Core\View\View;
 use App\AppRepoManager;
 use Core\Form\FormResult;
@@ -18,12 +19,6 @@ class UserController extends Controller
   }
 
 
-  public function mesBiens()
-  {
-    $view = new View('home/mesBiens');
-
-    $view->render();
-  }
 
 
 
@@ -34,18 +29,19 @@ class UserController extends Controller
 
     $form_result = new FormResult();
 
-
     $price = $data_form['price'];
     $start = $data_form['start'];
     $end = $data_form['end'];
     $user_id = $data_form['user_id'];
+    $logement_id = $data_form['logement_id'];
 
 
     $reservation_data = [
       'price_total' => $price,
       'date_start' => $start,
       'date_end' => $end,
-      'user_id' => $user_id
+      'user_id' => $user_id,
+      'logement_id' => $logement_id
     ];
 
 
@@ -91,14 +87,9 @@ class UserController extends Controller
     $nb_bed = $data_form['nb_bed'];
     $type = $data_form['type'];
     $phone = $data_form['phone'];
-    $img = $data_form['img'];
+    $equipements = $data_form['equipements'] ?? [];
     
-
-  
-
-  
-
-
+    
 
     $reservation_data_adress = [
       'adress' => $city,
@@ -111,7 +102,6 @@ class UserController extends Controller
     $adress_id = AppRepoManager::getRm()->getAdressRepository()->insertAdress($reservation_data_adress );
 
     
-
 
     $reservation_data = [
       'user_id' =>$user_id,
@@ -134,22 +124,35 @@ class UserController extends Controller
     $reservation_logement_id = AppRepoManager::getRm()->getLogementRepository()->insertLogement($reservation_data);
 
 
+
+    foreach ($equipements as $equipement) {
+
+      $reservation_equipement = [
+        'logement_id' => $reservation_logement_id,
+        'equipement_id' => $equipement
+      ];
+ 
+     
+
+      AppRepoManager::getRm()->getLogementEquipementRepository()->insertEquipementByLogementId($reservation_equipement);
+
+    }
+
     $image_data = [
       'logement_id' => $reservation_logement_id,
       'image_path' => $data_form['img']
     ];
    
-$image_data = AppRepoManager::getRm()->getMediaRepository()->insertMedia($image_data);
+    $image_data = AppRepoManager::getRm()->getMediaRepository()->insertMedia($image_data);
 
-          self::redirect('/');
+         
      
-
-
+    self::redirect('/');
+  
   }
 
-
-  public function getReservationById(int $id): void
-  {
+    public function getReservationById(int $id): void
+    {
     
 
        $view_data = [
@@ -159,7 +162,7 @@ $image_data = AppRepoManager::getRm()->getMediaRepository()->insertMedia($image_
 
 
       $view->render($view_data);
-  }
+      }
 
 
 

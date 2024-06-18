@@ -66,7 +66,7 @@ class App implements DatabaseConfigInterface
     //ON ENREGISTRE LES ROUTES ICI
     $this->router->get('/', [HomeController::class, 'home']);
     $this->router->get('/favoris', [UserController::class, 'favoris']);
-    $this->router->get('/mesBiens', [UserController::class, 'mesBiens']);
+    $this->router->get('/mesBiens/{id}', [LogementController::class, 'mesBiens']);
    
     $this->router->get('/details{id}', [LogementController::class, 'details']);
     $this->router->get('/add_logement', [LogementController::class, 'addLogement']); 
@@ -75,6 +75,7 @@ class App implements DatabaseConfigInterface
 
     //add logement
     $this->router->post('/add_logement_form', [UserController::class, 'addLogement']);
+    $this->router->get('/delete/{id}', [LogementController::class, 'deleteLogement']);
   
 
 

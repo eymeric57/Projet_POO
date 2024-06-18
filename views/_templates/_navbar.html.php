@@ -44,7 +44,7 @@ use Core\Session\Session; ?>
                     <li>
                       <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item custom-link" href="/mesBiens">Mes annonces</a></li>
+                    <li><a class="dropdown-item custom-link" href="/mesBiens/<?= Session::get(Session::USER)->id ?>">Mes annonces</a></li>
                     <li>
                       <hr class="dropdown-divider">
                     </li>

@@ -62,6 +62,7 @@ use Core\Session\Session; ?>
 
         <form action="/" method="POST" onsubmit="copierSpanDansHidden()">
             <input type="hidden" name="user_id" value="<?= Session::get(Session::USER)->id ?>">
+            <input type="hidden" name="logement_id" value="<?= $logements->id ?>">
 
             <label for="start_date">Start</label>
             <input id="start_date" type="date" name="start" required />
