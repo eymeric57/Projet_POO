@@ -54,7 +54,7 @@ ul, ol, li {
   color: rgb(214, 19, 78);
 }
 
-input[type=email], input[type=password], input[type=text], input[type=number] {
+input[type=email], input[type=password], input[type=text], input[type=number], #select, textarea, #card {
   border: 2px solid rgb(214, 19, 78);
   border-radius: 14px;
   height: 60px;
@@ -66,58 +66,6 @@ input[type=email], input[type=password], input[type=text], input[type=number] {
   font-weight: 700;
   font-size: 1.4rem;
 }
-
-
-#switchBtn {
-  position: relative;
-  border-radius: 50px;
-  height: 100px;
-  width: 240px;
-  background: white;
-  box-shadow: 0 0 15px #0000001e;
-  cursor: pointer;
-  transition: background 0.4s;
-}
-
-#switchBtn.active {
-  background: rgb(214, 19, 78);
-}
-
-#roundBtn {
-  position: absolute;
-  height: 80px;
-  width: 80px;
-  border-radius: 50%;
-  background: rgb(214, 19, 78);
-  top: 50%;
-  transform: translateY(-50%);
-  left: 5%;
-  transition: left 0.4s;
-}
-
-#roundBtn.active {
-  background: white;
-  left: 62%;
-}
-
-#choice {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateY(-50%);
-  text-transform: uppercase;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: rgb(214, 19, 78);
-  font-weight: bold;
-  transition: left 0.4s;
-}
-
-#choice.active {
-  color: white;
-  left: 10%;
-}
-
-
 
 
 
@@ -132,55 +80,73 @@ input[type=email], input[type=password], input[type=text], input[type=number] {
 /* BTN NAV choix du compte */
 
 .relative {
-  height: 100px;
+  height: 30px;
   position: relative;
+  cursor: pointer;
+  margin-right: 20px;
 }
 
-#switch {
-  appearance: none;
-  height: 100px;
-  width: 250px;
-  background: white;
+#switchBtn {
+  height: 30px;
+  width: 120px;
   border-radius: 50px;
+  border: none;
+  background: white;
   box-shadow: 0 0 15px #0000001e;
   transition: background 0.4s;
 }
 
-#roundBtn {
+#switchBtn.active {
+  background: rgb(214, 19, 78);
+}
+
+#slider {
   position: absolute;
-  height: 80px;
-  width: 80px;
+  height: 20px;
+  width: 20px;
   border-radius: 50%;
   left: 5%;
   top: 50%;
   transform: translateY(-50%);
   background: rgb(214, 19, 78);
   transition: left 0.4s;
-  cursor: pointer;
 }
 
-#switch:checked {
-  background: rgb(214, 19, 78);
-}
-
-#switch:checked + #roundBtn {
+#slider.active {
   background: white;
-  left: 64%;
+  left: 80%;
 }
 
 #choice {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 30%;
   transform: translateY(-50%);
-  text-transform: uppercase;
+ 
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: rgb(214, 19, 78);
   font-weight: bold;
   transition: left 0.4s;
+  font-size: 0.8rem;
 }
 
 #choice.active {
   color: white;
-  left: 15%;
+  left: 20%;
+}
+
+#nav2 {
+  display: none;
+}
+
+#nav2.active {
+  display: block;
+}
+
+#nav1.active {
+  display: none;
+}
+
+#nav1 {
+  display: block;
 }

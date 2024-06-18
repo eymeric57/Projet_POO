@@ -140,6 +140,27 @@ public function getReservationByLogementId (int $id): array
 
 
 
+public function deleteReservation(int $id): bool
+{
+    //on crée la requête
+    $query = sprintf(
+        'DELETE  FROM %s  WHERE `id`=:id',
+        $this->getTableName()
+    );
+
+    //on prépare la requete
+    $stmt = $this->pdo->prepare($query);
+
+    //on vérifie si la requete s'est bien préparée
+    if (!$stmt) return false;
+
+    //on execute la requete en bindant les paramètres
+    return $stmt->execute(['id' => $id]);
+}
+
+
+
+
 
 
   

@@ -81,6 +81,8 @@ class App implements DatabaseConfigInterface
 
 
     $this->router->post('/', [UserController::class, 'addReservation']);
+    $this->router->get('/delete/reservation/{id}', [LogementController::class, 'deleteReservation']);
+  
     $this->router->get('/mes_reservation/{id}', [UserController::class, 'getReservation']);
 
    

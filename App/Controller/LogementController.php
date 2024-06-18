@@ -104,5 +104,45 @@ class LogementController extends Controller
 
 
 
+
+  public function deleteReservation(int $id): void
+  {
+
+    $form_result = new FormResult();
+
+      // appel de la méthode qui désactive une pizza
+      $deleteLogement = AppRepoManager::getRm()->getReservationRepository()->deleteReservation($id);
+      // appel de la méthode qui désactive une pizza
+   
+
+      // vérification du résultat de la suppression
+      if (!$deleteLogement) {
+          $form_result->addError(new FormError('Une erreur est survenue lors de la suppression de la pizza'));
+      } else {
+          $form_result->addSuccess(new FormSuccess('Pizza désactivée avec succès'));
+      }
+
+      // gestion des erreurs
+      if ($form_result->hasErrors()) {
+          // enregistrement des erreurs en session
+          Session::set(Session::FORM_RESULT, $form_result);
+          self::redirect('/');
+      }
+
+      // si tout est OK, redirection vers la liste des pizzas
+      // suppression de la session form_result
+      if ($form_result->hasSuccess()) {
+          Session::set(Session::FORM_SUCCESS, $form_result);
+          Session::remove(Session::FORM_RESULT);
+          self::redirect('/');
+      }
+      
+
+      // vérification du résultat de la suppression
+    
+  }
+
+
+
     
 }
