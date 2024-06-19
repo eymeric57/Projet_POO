@@ -62,15 +62,19 @@ class App implements DatabaseConfigInterface
     $this->router->get('/inscription', [AuthController::class, 'registerForm']);
     $this->router->get('/logout', [AuthController::class, 'logout']);
     $this->router->post('/register', [AuthController::class, 'register']);
+    $this->router->get('/profile/{id}', [AuthController::class, 'getProfileById']);
+   
 
-    //ON ENREGISTRE LES ROUTES ICI
+
+
+    // PARTIE HOME:
     $this->router->get('/', [HomeController::class, 'home']);
     $this->router->get('/favoris', [UserController::class, 'favoris']);
     $this->router->get('/mesBiens/{id}', [LogementController::class, 'mesBiens']);
-   
     $this->router->get('/details{id}', [LogementController::class, 'details']);
     $this->router->get('/add_logement', [LogementController::class, 'addLogement']); 
-    //INFO: si on veut renvoyer une vue à l'utilisateur => route en "get"
+    $this->router->get('/home_price', [LogementController::class, 'logementByprice']);
+    $this->router->get('/home_type', [LogementController::class, 'logementByType']);
 
 
     //add logement
@@ -79,11 +83,12 @@ class App implements DatabaseConfigInterface
   
 
 
+    // Reservation 
 
     $this->router->post('/', [UserController::class, 'addReservation']);
     $this->router->get('/delete/reservation/{id}', [LogementController::class, 'deleteReservation']);
-  
     $this->router->get('/mes_reservation/{id}', [UserController::class, 'getReservation']);
+    $this->router->get('/les-reservations/{id}', [LogementController::class, 'reservationMesLogements']);
 
    
   }

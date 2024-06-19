@@ -195,4 +195,35 @@ class AuthController extends Controller
     // On redirige vers l'accueil principal
     self::redirect('/');
   }
-}
+
+
+  public function getProfileById(){
+
+    $array_data = [
+
+      'user' => AppRepoManager::getRm()->getUserRepository()->readById(User::class, Session::get(Session::USER)->id),
+    ];
+
+
+
+
+    $view = new View('auth/profile');
+    $view->render($array_data);
+  }
+
+
+
+
+
+
+  
+  
+  }
+
+
+
+
+
+   
+
+

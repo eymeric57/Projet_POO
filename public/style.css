@@ -54,7 +54,7 @@ ul, ol, li {
   color: rgb(214, 19, 78);
 }
 
-input[type=email], input[type=password], input[type=text], input[type=number], #select, textarea, #card {
+input[type=email], input[type=password], input[type=text], input[type=number], #select, textarea, #card, input[type=search] {
   border: 2px solid rgb(214, 19, 78);
   border-radius: 14px;
   height: 60px;
@@ -66,10 +66,6 @@ input[type=email], input[type=password], input[type=text], input[type=number], #
   font-weight: 700;
   font-size: 1.4rem;
 }
-
-
-
-
 
 
 
@@ -150,3 +146,8 @@ input[type=email], input[type=password], input[type=text], input[type=number], #
 #nav1 {
   display: block;
 }
+
+
+
+/* Hearth btn  */
+

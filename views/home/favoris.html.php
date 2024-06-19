@@ -1,4 +1,4 @@
-<h1>Mes favoris</h1>
+<br>
 
-
-<h4>fdoijgqpihgkosdmfhg</h4>
+<h1 class="text-center title
+">****Dans la prochaine mise a jour ****</h1>

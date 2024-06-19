@@ -1,12 +1,6 @@
 <h1>mes biens</h1>
 
 
-
-<thead>
-
-    <tr>
-
-
         <?php
 
         use App\Model\Logement; ?>
@@ -18,10 +12,12 @@
 
                 <div class="card-body  ">
                     <h5 class="card-title">logement :  <?= $reservation->title?></h5>
-                    <p class="card-text">Prix par <?= $reservation->price_per_night?></p>
-                    <p class="card-text">Prix total : <b><?= $reservation->price_total ?>€</b></p>
+                  
+                    <p class="card-text">Prix par nuit: <b><?= $reservation->price_per_night ?>€</b></p>
 
-                    <a onclick="return confirm('Voulez vous vraiment supprimer cette pizza')" href="/delete/<?= $reservation->id ?>" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                    <a onclick="return confirm('Voulez vous vraiment supprimer votre logement')" href="/delete/<?= $reservation->id ?>" class="btn btn-danger"><i class="bi bi-trash"></i> Suprimmer mon Logement</a>
+
+                   
                     
                 </div>
             </div>
@@ -30,3 +26,5 @@
 
 
         <?php endforeach ?>
+
+

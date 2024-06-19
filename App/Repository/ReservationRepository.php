@@ -160,7 +160,20 @@ public function deleteReservation(int $id): bool
 
 
 
+public function getReservationByProprietaireId (int $id): array
+{
+  $array_result = [];
+ 
+  $q = sprintf(
+    'SELECT *
+          FROM %s
+          WHERE `logement_id` = :id',
+    $this->getTableName()
+  );
+  $stmt = $this->pdo->prepare($q);
 
+
+}
 
 
   

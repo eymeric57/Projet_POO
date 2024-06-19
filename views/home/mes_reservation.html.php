@@ -1,6 +1,5 @@
 <h1 class="text-center p-3 m-5 title">Mes reservation</h1>
 
-
 <?php if (empty($reservations)) : ?>
     <p class="text-center p-3 m-5">Aucune réservation faites.</p>
 <?php else : ?>

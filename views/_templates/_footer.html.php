@@ -1,10 +1,8 @@
   <footer id="footer"class=" ">
     <nav id="footer-nav"  class="">
       <ul class="d-flex justify-content-center">
-        <li class="m-1"><a href="#">footer lien1</a></li>
-        <li class="m-1"><a href="#">footer lien2</a></li>
-        <li class="m-1"><a href="#">footer lien3</a></li>
-        <li class="m-1"><a href="#">footer lien4</a></li>
+        <li class="m-1"><a href="#">Mention légale</a></li>
+        
       </ul>
     </nav>
   </footer>
@@ -14,7 +12,6 @@
   <!-- import du script bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
-  <script src="/index.js"></script>
   </body>
 
   </html>

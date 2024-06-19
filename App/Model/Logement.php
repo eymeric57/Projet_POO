@@ -20,14 +20,15 @@ class Logement extends Model
 
   public int $type_id;
   public int $user_id;
-  public int $adress_id;
+  public int $address_id;
 
   public ?User $user;
   public ?Type $type;
   public ?Adress $adress;
 
   public array $medias;
-  public array $reservation;
+  public array $reservations;
+  
   
  
 }

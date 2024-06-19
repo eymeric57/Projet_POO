@@ -61,7 +61,7 @@ class UserController extends Controller
        $view_data = [
         'reservations'=> AppRepoManager::getRm()->getReservationRepository()->getReservationByUserId($id)
       ];
-      $view = new View('home/mes_reservation/' . $id);
+      $view = new View('home/mes_reservation/');
 
 
       $view->render($view_data);
