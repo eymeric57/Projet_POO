@@ -116,9 +116,9 @@ class LogementController extends Controller
 
     // vérification du résultat de la suppression
     if (!$deleteLogement) {
-      $form_result->addError(new FormError('Une erreur est survenue lors de la suppression de la pizza'));
+      $form_result->addError(new FormError('Une erreur est survenue lors de la suppression du bien'));
     } else {
-      $form_result->addSuccess(new FormSuccess('Pizza désactivée avec succès'));
+      $form_result->addSuccess(new FormSuccess('Bien désactivée avec succès'));
     }
 
     // gestion des erreurs
@@ -133,7 +133,7 @@ class LogementController extends Controller
     if ($form_result->hasSuccess()) {
       Session::set(Session::FORM_SUCCESS, $form_result);
       Session::remove(Session::FORM_RESULT);
-      self::redirect('/');
+      self::redirect('/mes_reservation/' . Session::get(Session::USER)->id );
     }
 
 

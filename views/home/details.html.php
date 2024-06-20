@@ -22,10 +22,12 @@ use Core\Session\Session; ?>
         $first = true;
         foreach ($logements->medias as $media) :
         ?>
+        
             <div class="carousel-item <?php if ($first) { echo 'active'; $first = false; } ?>" data-bs-interval="10000">
                 <img src="/assets/img/<?= $media->image_path ?>" class="d-block img-fluid w-100 object-fit-contain" style="height: 500px" alt="...">
                 <div class="carousel-caption d-none d-md-block"></div>
             </div>
+            </a>
         <?php endforeach; ?>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
@@ -88,12 +90,14 @@ use Core\Session\Session; ?>
 
 // convert today date to input format
 
+total.textContent =  nightPrice.textContent;
+
+console.log(total.value);
 const today = new Date().toISOString().split("T")[0];
 
 start_date.value = today;
 start_date.min = today;
 
-// tomorrow date calc
 
 let tomorrow = new Date();
 tomorrow.setDate(tomorrow.getDate() + 1);
@@ -121,14 +125,22 @@ end_date.addEventListener("change", (e) => {
   }
 });
 
+
 let bookingCalc = () => {
   let diffTime = Math.abs(
     new Date(end_date.value) - new Date(start_date.value)
   );
   let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  
 
   total.textContent = diffDays * nightPrice.textContent;
+
+  
+
 };
+
+
+
 
 start_date.addEventListener("change", bookingCalc);
 end_date.addEventListener("change", bookingCalc);
@@ -140,5 +152,11 @@ end_date.addEventListener("change", bookingCalc);
 function copierSpanDansHidden() {
   let spanValue = document.getElementById('total').innerText;
   document.getElementById('champCache').value = spanValue;
-}</script>
+}
 
+
+
+
+
+
+</script>

@@ -4,9 +4,10 @@ namespace App\Repository;
 
 use App\Model\Type;
 use App\Model\User;
-use App\AppRepoManager;
 use App\Model\Adress;
+use App\AppRepoManager;
 use App\Model\Logement;
+use App\Model\Equipement;
 use Core\Repository\Repository;
 
 class LogementRepository extends Repository
@@ -116,7 +117,7 @@ class LogementRepository extends Repository
     //on crée la requête SQL
     $q = sprintf(
       'SELECT
-      l.`id`, 
+      l.`id`,
       l.`title`, 
       l.`description`, 
       l.`price_per_night`, 
@@ -128,6 +129,7 @@ class LogementRepository extends Repository
       l.`type_id`, 
       l.`user_id`, 
       m.`image_path`
+
     FROM 
       logement AS l
     INNER JOIN 
@@ -161,6 +163,8 @@ class LogementRepository extends Repository
       $logement = new Logement($row_data);
       $logement->medias[] = $row_data['image_path'];
       $logement->type = AppRepoManager::getRm()->getTypeRepository()->readById(Type::class, $logement->type_id);
+      $logement->equipement = AppRepoManager::getRm()->getLogementEquipementRepository()->getEquipementByLogementId($logement->id);
+    
       $array_result[] = $logement;
     }
     //on retourne le tableau fraichement rempli

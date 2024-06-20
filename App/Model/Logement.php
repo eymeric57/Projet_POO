@@ -25,6 +25,7 @@ class Logement extends Model
   public ?User $user;
   public ?Type $type;
   public ?Adress $adress;
+  
 
   public array $medias;
   public array $reservations;

@@ -21,14 +21,15 @@ class LogementEquipementRepository extends Repository
         $array_result = [];
         //on crée la requete SQL
         $q = sprintf(
-            'SELECT le.*, e.`label`, e.`image_path`
+            'SELECT *
             FROM %1$s AS le
-            INNER JOIN %2$s AS e ON p.`size_id` = s.`id`
-            WHERE le`.id` = e.`id`',
+            INNER JOIN %2$s AS e ON le.`equipement_id` = e.`id`
+            WHERE le.`logement_id` = :id',
             $this->getTableName(), //correspond au %1$s
-            AppRepoManager::getRm()->getEquipementRepository()->getTableName() //correspond au %2$s
+            AppRepoManager::getRm()->getEquipementRepository()->getTableName()
+             //correspond au %2$s
         );
- 
+
         //on prépare la requete
         $stmt = $this->pdo->prepare($q);
  
@@ -41,12 +42,12 @@ class LogementEquipementRepository extends Repository
         //on récupère les résultats
         while ($row_data = $stmt->fetch()) {
             //a chaque passage de la boucle on instancie un objet ingredient
-            $price = new Equipement($row_data);
+            $equipement = new Equipement($row_data);
  
-            //on va reconstruire à la main un tableau pour crée une instance de Size
+        
             $equipement_data = [
-                'id' => $row_data['size_id'],
-                'label' => $row_data['label']
+                'label' => $row_data['label'],
+                'icon' => $row_data['image_path']
             ];
  
             //on peut maintenant instancier un objet Size

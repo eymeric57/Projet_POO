@@ -1,14 +1,16 @@
-<h1>mes biens</h1>
+<h1 class="text-center">Mes Logement en location </h1>
 
 
         <?php
 
         use App\Model\Logement; ?>
 
+        <div class="d-flex flex-row">
+   
         <?php foreach ($logements as $reservation): ?>
 
 
-            <div class="card d-flex flex-row m-3 w-25">
+         <div class="card d-flex flex-row m-3 w-25">
 
                 <div class="card-body  ">
                     <h5 class="card-title">logement :  <?= $reservation->title?></h5>
@@ -20,11 +22,11 @@
                    
                     
                 </div>
-            </div>
 
 
+            </div>        <?php endforeach ?>
 
 
-        <?php endforeach ?>
+</div>
 
 

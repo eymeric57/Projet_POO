@@ -8,7 +8,7 @@ use Core\Session\Session; ?>
 
 <!-- formulaire d'ajout d'un logement -->
 
-<form action="/add_logement_form" method="POST">
+<form action="/add_logement_form" method="POST" enctype="multipart/form-data">
 
   <input type="hidden" name="user_id" value="<?= Session::get(Session::USER)->id ?>">
 
@@ -141,7 +141,8 @@ use Core\Session\Session; ?>
 
         <div class="form-group d-flex flex-column">
           <label for="img">Photos du logements</label>
-          <input type="file" class="form-control" id="img" placeholder="image" name="img">
+          <input type="file" class="form-control" placeholder="image" name="img[]" multiple  >
+  
         </div>
 
       </div>
