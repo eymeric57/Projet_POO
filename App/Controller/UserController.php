@@ -76,7 +76,7 @@ class UserController extends Controller
 
     $form_result = new FormResult();
     $file_data = $_FILES['img'];
-    var_dump($file_data);die;
+   
     $user_id = $data_form['user_id'];
     $city = $data_form['city'];
     $country = $data_form['country'];
@@ -93,11 +93,11 @@ class UserController extends Controller
     $equipements = $data_form['equipements'] ?? [];
 
     $image_name = [
-      'image_name'=> $file_data['name']
+      'image_name'=> $file_data['name']  
     ];
     foreach ($image_name as $test) {
-      var_dump($test);
-    };die;
+      $filename = uniqid() . '_' . $test[0];
+    }
 
     $tmp_path = $file_data['tmp_name'] ?? '';
     $public_path = 'public/assets/img';
@@ -107,15 +107,15 @@ class UserController extends Controller
 
 
       // redéfinition d'un nom unique pour l'image
-      $filename = uniqid() . '_' . $image_name;
-      $slug = explode('.', strtolower(str_replace(' ', '-', $filename)))[0];
+    
+  
       $public_path = PATH_ROOT . $public_path . $filename;
 
 
          foreach($_FILES as $file){
       //echo $file['name']; 
-    var_dump($file['name']);die;
-      move_uploaded_file($file['img'], $tmp_path. $filename);
+  
+      move_uploaded_file($file[''], $tmp_path. $filename);
     
 
          }
