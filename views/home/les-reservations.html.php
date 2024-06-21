@@ -1,4 +1,5 @@
 <h1 class="text-center p-3 m-5 title">Mes Logements réservés</h1>
+<?php include(PATH_ROOT . 'views/_templates/_message.html.php') ?>
 
 <?php if (!empty($logements)) : ?>
     <?php foreach ($logements as $logement) : ?>

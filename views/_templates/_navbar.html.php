@@ -12,17 +12,17 @@ use Core\Session\Session; ?>
   </div>
 
   <!--  barre de navigation -->
-  <div>
+  <div class="fav-home">
     <nav>
       <ul class="d-flex justify-content-center">
-        <li class="m-1"><a href="/">Accueil</a></li>
-        <li class="m-1"><a href="/favoris">Mes favoris</a></li>
+        <li class="m-1 custom-link "><h3><a href="/">Accueil</a></h3></li>
+
       </ul>
     </nav>
   </div>
 
   <!-- menu du profil -->
-  <div class="nav-profil">
+  <div class="nav-profil d-flex flex-column flex-w">
     <nav class="custom-nav-profil ">
       <ul class="custom-ul-profil">
         <li class="custom-link">
@@ -32,14 +32,14 @@ use Core\Session\Session; ?>
 
 
 
-            <div class="d-flex text-align-center align-items-center space-between">
+            <div class="d-flex text-align-center align-items-center  nav-responsive space-between">
               <label class="relative ">
                 <input id="switchBtn" type="button" />
                 <div id="slider" class="slider"></div>
                 <span id="choice">Voyageur</span>
               </label>
 
-              <div class="dropdown custom-link" id="nav1">
+              <div class="dropdown custom-link p-4" id="nav1">
                 <a class="dropdown-toggle button btn-secondary" href="" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                   Mon compte
                   <i class="bi bi-person custom-svg"></i>
@@ -66,7 +66,7 @@ use Core\Session\Session; ?>
 
 
 
-  <div class="dropdown custom-link" id="nav2">
+  <div class="dropdown custom-link p-4" id="nav2">
     <a class="dropdown-toggle button btn-secondary" href="" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
       Mon compte
       <i class="bi bi-person custom-svg"></i>
@@ -84,7 +84,7 @@ use Core\Session\Session; ?>
       <li>
         <hr class="dropdown-divider">
       </li>
-    
+
       <li><a class="dropdown-item custom-link" href="/logout">Me déconnecter</a></li>
     </ul>
   </div>
@@ -94,16 +94,16 @@ use Core\Session\Session; ?>
 
 
 
-  <?php else : ?>
+<?php else : ?>
 
-    <a href="/connexion"> <button class="btn button ">Se connecter
-        <i class="bi bi-person custom-svg"></i> </button>
-    </a>
+  <a href="/connexion"> <button class="btn button ">Se connecter
+      <i class="bi bi-person custom-svg"></i> </button>
+  </a>
 
-  <?php endif ?>
+<?php endif ?>
 
 
-  <script>
+<script>
   if (localStorage.getItem("buttonState") === "active") {
     // Si le bouton était actif, définissez l'état initial en conséquence
     switchBtn.classList.add("active");
@@ -112,13 +112,13 @@ use Core\Session\Session; ?>
     nav2.classList.add("active");
     nav1.classList.add("active");
     choice.textContent = "Loueur";
-} else {
+  } else {
     // Si le bouton n'était pas actif, définissez l'état initial en conséquence
     choice.textContent = "Voyageur";
-}
+  }
 
-// Ajoutez un écouteur d'événements au bouton de commutation
-switchBtn.addEventListener("click", () => {
+  // Ajoutez un écouteur d'événements au bouton de commutation
+  switchBtn.addEventListener("click", () => {
     // Basculez l'état du bouton
     switchBtn.classList.toggle("active");
     slider.classList.toggle("active");
@@ -131,6 +131,5 @@ switchBtn.addEventListener("click", () => {
 
     // Stockez l'état du bouton dans le stockage local
     localStorage.setItem("buttonState", choice.classList.contains("active") ? "active" : "inactive");
-});
-
-  </script>
+  });
+</script>

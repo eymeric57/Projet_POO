@@ -143,3 +143,36 @@ input[type="search"] {
 
 /* Hearth btn  */
 
+
+
+/* RESPONSIV FORM */
+
+@media screen and (max-width: 1000px) {
+
+  #responsive-form{
+  
+    flex-direction: column!important;
+
+  }
+  .custom-nav-profil {
+
+    flex-direction: column!important;
+
+  }
+  .nav-responsive{
+
+    flex-direction: column!important;
+ 
+  }
+
+  
+}
+
+@media screen and (max-width:800px) {
+
+.fav-home {
+  display: none;
+}
+
+  
+}

@@ -229,6 +229,7 @@ class LogementRepository extends Repository
     //on retourne le tableau fraichement rempli
     return $array_result;
   }
+  
 
 
 

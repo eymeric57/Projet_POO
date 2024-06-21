@@ -1,7 +1,7 @@
 
 <h1 class="text-center">Les locations disponibles</h1>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary w-50 p-3 m-auto">
+<nav class="navbar navbar-expand-lg w-50 m-auto">
   <div class="container-fluid container-fluid  mb-5 mt-5 navBg">
     <form class="d-flex" role="search">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -21,8 +21,6 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/home_price">Prix</a></li>
             <li><a class="dropdown-item" href="/home_type">Type</a></li>
-         
-          
          
           </ul>
         </li>

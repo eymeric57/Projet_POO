@@ -3,7 +3,9 @@
 <?php
 
 use App\AppRepoManager;
-use Core\Session\Session; ?>
+use Core\Session\Session; 
+include PATH_ROOT . 'views/_templates/_message.html.php';
+?>
 
 
 <!-- formulaire d'ajout d'un logement -->
@@ -13,7 +15,7 @@ use Core\Session\Session; ?>
   <input type="hidden" name="user_id" value="<?= Session::get(Session::USER)->id ?>">
 
   <!-- Adresse du logement -->
-  <div class="w-100 d-flex justify-content-center  gap-5">
+  <div id="responsive-form" class="w-100 d-flex justify-content-center gap-5">
     <div>
       <h2 class="p-3">Adresse du logement </h2>
       <div class="card adress d-flex flex-row p-3 text-center gap-3 ">
@@ -140,7 +142,8 @@ use Core\Session\Session; ?>
 
 
         <div class="form-group d-flex flex-column">
-          <label for="img">Photos du logements</label>
+          <h3>Limité a 3 photos </h3>
+          <label class="p-2" for="img">Photos du logements</label>
           <input type="file" class="form-control" placeholder="image" name="img[]" multiple  >
   
         </div>

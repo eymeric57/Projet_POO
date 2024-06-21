@@ -2,21 +2,18 @@
 
 <h1 class="text-center">Les locations disponibles</h1>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary w-50 m-auto">
+<nav class="navbar navbar-expand-lg w-50 m-auto">
   <div class="container-fluid container-fluid  mb-5 mt-5 navBg">
     <form class="d-flex" role="search">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-danger" type="submit"><i class="bi bi-search"></i></button>
+      <button class="btn button btn-outline-danger" type="submit"><i class="bi bi-search"></i></button>
     </form>
 
 
     <div class="collapse navbar-collapse p-3" id="navbarScroll">
       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-        <li class="nav-item">
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
+       
+    
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
            Filtres

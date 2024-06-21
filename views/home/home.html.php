@@ -1,6 +1,6 @@
 <h1 class="text-center">Les locations disponibles</h1>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary w-50 m-auto">
+<nav class="navbar navbar-expand-lg  w-50 m-auto">
   <div class="container-fluid container-fluid  mb-5 mt-5 navBg">
     <form class="d-flex" role="search">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -33,7 +33,7 @@
 
 
 
-  <div class="d-flex flex-row  gap-3"><?php foreach ($logements as $logement) :  ?>
+  <div class="d-flex justify-content-center flex-wrap gap-3"><?php foreach ($logements as $logement) :  ?>
     <div class="card d-flex " style="width: 18rem;">
       <div class="card-body width-150">
         <?php

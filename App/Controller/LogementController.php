@@ -19,8 +19,9 @@ class LogementController extends Controller
 
 
     $view_data = [
-
-      'logements' => AppRepoManager::getRm()->getLogementRepository()->getLogementById($id)
+      'logements' => AppRepoManager::getRm()->getLogementRepository()->getLogementById($id),
+      'form_result' => Session::get(Session::FORM_RESULT),
+      'form_success' => Session::get(Session::FORM_SUCCESS)
     ];
     $view = new View('home/details');
 
@@ -32,12 +33,15 @@ class LogementController extends Controller
   public function addLogement()
   {
 
-
+$view_data = [
+  'form_result' => Session::get(Session::FORM_RESULT),
+  'form_success' => Session::get(Session::FORM_SUCCESS)
+];
 
     $view = new View('home/add_logement');
 
 
-    $view->render();
+    $view->render($view_data);
   }
 
 
@@ -49,14 +53,11 @@ class LogementController extends Controller
 
   public function mesBiens(int $id)
   {
-
     $view_data = [
-
       'logements' => AppRepoManager::getRm()->getLogementRepository()->getAllLogementByUserId($id),
-
+      'form_result' => Session::get(Session::FORM_RESULT),
+      'form_success' => Session::get(Session::FORM_SUCCESS)
     ];
-
-
 
     $view = new View('home/mesBiens');
 
@@ -76,9 +77,9 @@ class LogementController extends Controller
 
     // vérification du résultat de la suppression
     if (!$deleteLogement) {
-      $form_result->addError(new FormError('Une erreur est survenue lors de la suppression de la pizza'));
+      $form_result->addError(new FormError('Une erreur est survenue lors de la suppression du logement'));
     } else {
-      $form_result->addSuccess(new FormSuccess('Pizza désactivée avec succès'));
+      $form_result->addSuccess(new FormSuccess('logement desactivé'));
     }
 
     // gestion des erreurs
@@ -88,17 +89,13 @@ class LogementController extends Controller
       self::redirect('/');
     }
 
-    // si tout est OK, redirection vers la liste des pizzas
+
     // suppression de la session form_result
     if ($form_result->hasSuccess()) {
       Session::set(Session::FORM_SUCCESS, $form_result);
       Session::remove(Session::FORM_RESULT);
-      self::redirect('/');
+      self::redirect('/mesBiens/' . Session::get(Session::USER)->id);
     }
-
-
-    // vérification du résultat de la suppression
-
   }
 
 
@@ -133,7 +130,7 @@ class LogementController extends Controller
     if ($form_result->hasSuccess()) {
       Session::set(Session::FORM_SUCCESS, $form_result);
       Session::remove(Session::FORM_RESULT);
-      self::redirect('/mes_reservation/' . Session::get(Session::USER)->id );
+      self::redirect('/mes_reservation/' . Session::get(Session::USER)->id);
     }
 
 
@@ -147,9 +144,9 @@ class LogementController extends Controller
   {
 
     $view_data = [
-
-      'logements' => AppRepoManager::getRm()->getLogementRepository()->getAllLogementByPrice()
-
+      'logements' => AppRepoManager::getRm()->getLogementRepository()->getAllLogementByPrice(),
+      'form_result' => Session::get(Session::FORM_RESULT),
+      'form_success' => Session::get(Session::FORM_SUCCESS)
     ];
 
 
@@ -162,8 +159,9 @@ class LogementController extends Controller
   public function logementByType()
   {
     $view_data = [
-      'logements' => AppRepoManager::getRm()->getLogementRepository()->getAllLogementByType()
-
+      'logements' => AppRepoManager::getRm()->getLogementRepository()->getAllLogementByType(),
+      'form_result' => Session::get(Session::FORM_RESULT),
+      'form_success' => Session::get(Session::FORM_SUCCESS)
     ];
 
     $view = new View('home/home_type');
@@ -176,9 +174,11 @@ class LogementController extends Controller
 
   public function reservationMesLogements()
   {
- $view_data = [
-   'logements' => AppRepoManager::getRm()->getLogementRepository()->getAllLogementByUserId(Session::get(Session::USER)->id)
- ];
+    $view_data = [
+      'logements' => AppRepoManager::getRm()->getLogementRepository()->getAllLogementByUserId(Session::get(Session::USER)->id),
+      'form_result' => Session::get(Session::FORM_RESULT),
+      'form_success' => Session::get(Session::FORM_SUCCESS)
+    ];
 
 
 
