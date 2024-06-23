@@ -1,16 +1,16 @@
 <h1 class="text-center">Les locations disponibles</h1>
 
-<nav class="navbar navbar-expand-lg  w-50 m-auto">
+<nav style="width: 450px" class="navbar-expand-lg m-auto">
   <div class="container-fluid container-fluid  mb-5 mt-5 navBg">
     <form class="d-flex" role="search">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn button m-1 p-2 border " type="submit"><i class="bi bi-search"></i></button>
-    </form>
-
-
-    <div class="collapse navbar-collapse" id="navbarScroll">
-      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-        <li class="nav-item">
+      <button class="btn btn-outline-danger p-2
+       button " type="submit">
+       <i class="bi bi-search"></i>
+      </button> 
+         <div class="collapse p-2 navbar-collapse" id="navbarScroll">
+          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item">
         </li>
 
         <li class="nav-item dropdown">
@@ -26,6 +26,10 @@
         </li>
 
       </ul>
+    </form>
+
+
+ 
 
     </div>
   </div>
@@ -33,7 +37,7 @@
 
 
 
-  <div class="d-flex justify-content-center flex-wrap gap-3"><?php foreach ($logements as $logement) :  ?>
+  <div class="d-flex justify-content-center user-select-none flex-wrap gap-3"><?php foreach ($logements as $logement) :  ?>
     <div class="card d-flex " style="width: 18rem;">
       <div class="card-body width-150">
         <?php
@@ -41,15 +45,16 @@
             // Get the first media
             $media = $logement->medias[0];
         ?>
-          <img src="/assets/img/<?= $media ?>" class="card-img-top" alt="">
+        <div style="background-image: url(/assets/img/<?= $media ?>); height: 200px; background-size: cover; background-repeat: no-repeat; border-radius: 10px"></div>
+         
         <?php
           }
         ?>
-        <h5 class="card-title"><?= $logement->title ?> <span class="text-primary" style="width: 5rem;"><a id="" href=""><i class="bi bi-heart m-1"></a></i></span></h5>
-        <p class="card-text"><?= $logement->description ?></p>
+        <h4 class="card-title p-1"><?= $logement->title ?> <span class="text-primary" style="width: 5rem;"><a id="" href=""></a></i></span></h5>
+        <p class="card-text" ><?= $logement->description ?></p>
         <p class="card-text">Prix : <b><?= $logement->price_per_night ?>€</b></p>
 
-        <p class="card-text d-flex"><b>Equipement:</b><?php foreach ($logement->equipement as $equipement) : ?> <?= $equipement->label ?> <?php endforeach; ?></p>
+        <p class="card-text d-flex"><b>Equipement:</b><?php foreach ($logement->equipement as $equipement) : ?> <?= $equipement->label ?> / <?php endforeach; ?></p>
 
         <p>type : <?= $logement->type->label ?></p>
         <a href="/details<?= $logement->id ?>" class="btn btn-primary button p-1 rounded-3">Details</a>

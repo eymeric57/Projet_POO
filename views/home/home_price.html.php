@@ -2,15 +2,12 @@
 
 <h1 class="text-center">Les locations disponibles</h1>
 
-<nav class="navbar navbar-expand-lg w-50 m-auto">
+<nav style="width: 450px" class="navbar-expand-lg m-auto">
   <div class="container-fluid container-fluid  mb-5 mt-5 navBg">
     <form class="d-flex" role="search">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn button btn-outline-danger" type="submit"><i class="bi bi-search"></i></button>
-    </form>
-
-
-    <div class="collapse navbar-collapse p-3" id="navbarScroll">
+      <button class="btn button btn-outline-danger p-2" type="submit"><i class="bi bi-search"></i></button>
+      <div class="collapse p-2 navbar-collapse " id="navbarScroll">
       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
        
     
@@ -30,8 +27,14 @@
       </ul>
 
     </div>
+
+       
+    </form>
+
+
+   
   </div>
-</nav>
+</nav> 
 <div class="d-flex justify-content-center flex-wrap gap-3">
 <?php foreach ($logements as $logement) : ?>
 
@@ -42,14 +45,14 @@
         // Get the first media
         $media = $logement->medias[0];
       ?>
-        <img src="/assets/img/<?= $media ?>" class="card-img-top" alt="">
+        <img src="/assets/img/<?= $media ?>" class="card-img-top" style=" height: 200px; background-size: cover; background-repeat: no-repeat; border-radius: 10px" alt="">
       <?php
       }
       ?>
-      <h5 class="card-title"><?= $logement->title ?> <span class="text-primary" style="width: 5rem;"><a id="" href=""><i class="bi bi-heart m-1" ></a></i></span></h5>
-      <p class="card-text"><?= $logement->description ?></p>
-      <p class="card-text">Prix : <b><?= $logement->price_per_night ?>€</b></p>
-      <p>type : <?= $logement->type->label ?></p>
+      <h5 class="card-title user-select-none"><?= $logement->title ?> <span class="text-primary" style="width: 5rem;"></span></h5>
+      <p class="card-text user-select-none"><?= $logement->description ?></p>
+      <p class="card-text user-select-none">Prix : <b><?= $logement->price_per_night ?>€</b></p>
+      <p class="card-text user-select-none">type : <?= $logement->type->label ?></p>
       <a  href="/details<?= $logement->id ?>" class="btn btn-primary button p-1 rounded-3">Details</a>
     </div>
   </div><?php endforeach; ?>

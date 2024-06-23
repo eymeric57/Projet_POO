@@ -67,10 +67,12 @@ class UserController extends Controller
 
     $view_data = [
       'reservations' => AppRepoManager::getRm()->getReservationRepository()->getReservationByUserId($id),
+    
       'form_result' => Session::get(Session::FORM_RESULT),
       'form_success' => Session::get(Session::FORM_SUCCESS)
 
     ];
+
     $view = new View('home/mes_reservation/');
 
 
@@ -266,4 +268,7 @@ class UserController extends Controller
 
     $view->render($view_data);
   }
+
+
+ 
 }

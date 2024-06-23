@@ -9,7 +9,7 @@ use Core\Session\Session; ?>
 <h1 class="text-center p-3 m-5"><?= $logements->title ?></h1>
 
 <div class="card-body justify-content-evenly  d-flex">
-  <div class="d-grid gap-3 d-md-flex justify-content-md-end ">
+  <div class="d-grid gap-3 d-md-flex  justify-content-md-end ">
 
     <div id="carouselExampleDark" class="carousel slide overflow-hidden" style="width:800px;" data-bs-ride="carousel">
 
@@ -45,9 +45,9 @@ use Core\Session\Session; ?>
     </div>
 
 
-    <div class="d-flex flex-column">
+    <div class="d-flex p-3 flex-column">
 
-      <div class="card-body bg-light border rounded ">
+      <div class="card-body p-1 bg-light border rounded ">
         <h2 class="card-title">Description</h2>
         <p><?= $logements->description ?></p>
 
@@ -63,7 +63,7 @@ use Core\Session\Session; ?>
       </div>
 
 
-      <h2>Book your holiday</h2>
+      <h2>Reserver votre sejour</h2>
 
 
       <form action="/" method="POST" onsubmit="copierSpanDansHidden()">

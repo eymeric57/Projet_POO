@@ -23,5 +23,5 @@
         <?php endif; ?>
     <?php endforeach; ?>
 <?php else : ?>
-    <p class="text-center p-3 m-5">Aucune réservation faite.</p>
+    <p class="text-center p-3 m-5">Personne n'a reservé votre logement pour le moment</p>
 <?php endif; ?>

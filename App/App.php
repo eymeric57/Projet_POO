@@ -80,6 +80,8 @@ class App implements DatabaseConfigInterface
     //add logement
     $this->router->post('/add_logement_form', [UserController::class, 'addLogement']);
     $this->router->get('/delete/{id}', [LogementController::class, 'deleteLogement']);
+
+    //add favoris
   
 
 

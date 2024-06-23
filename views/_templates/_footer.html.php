@@ -1,7 +1,7 @@
-  <footer id="footer"class=" ">
+  <footer id="footer"class=" begin-footer ">
     <nav id="footer-nav"  class="">
       <ul class="d-flex justify-content-center">
-        <li class="m-1"><a href="#">Mention légale</a></li>
+        <li class="m-1">&copy ern_2024-TP-Marlier-Eymeric <a href="https://github.com/eymeric57" target="_blank"><i class="bi bi-github"></i></a> <a href="https://fr.linkedin.com/in/eymeric-marlier-8a2b1213agit "><i class="bi bi-linkedin"></i></a></li>
         
       </ul>
     </nav>

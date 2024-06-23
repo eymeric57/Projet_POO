@@ -141,7 +141,26 @@ input[type="search"] {
   display: block;
 }
 
-/* Hearth btn  */
+.accueil {
+  color: rgb(214, 19, 78)!important;
+}
+
+
+
+/*footer */
+
+.begin-footer::before{
+
+  height: 1px;
+  color: grey;
+  width: 80%;
+  margin: 0 auto;
+  content: "";
+  display: block;
+  margin-top: 50px;
+  border-bottom: 1px solid grey !important;
+  padding: 10px;
+}
 
 
 

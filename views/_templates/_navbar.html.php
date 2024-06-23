@@ -15,7 +15,7 @@ use Core\Session\Session; ?>
   <div class="fav-home">
     <nav>
       <ul class="d-flex justify-content-center">
-        <li class="m-1 custom-link "><h3><a href="/">Accueil</a></h3></li>
+        <li class="m-1 custom-link "><h3><a class="custom-link  accueil" href="/">Accueil</a></h3></li>
 
       </ul>
     </nav>
@@ -80,7 +80,7 @@ use Core\Session\Session; ?>
       <li>
         <hr class="dropdown-divider">
       </li>
-      <li><a class="dropdown-item custom-link" href="/les-reservations/<?= Session::get(Session::USER)->id ?>">Les reservations</a></li>
+      <li><a class="dropdown-item custom-link" href="/les-reservations/<?= Session::get(Session::USER)->id ?>">Mes logements réservé </a></li>
       <li>
         <hr class="dropdown-divider">
       </li>
